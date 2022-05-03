@@ -1,26 +1,18 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-dark text-dark bg-primary pc-4">
-  <a class="navbar-brand logo_h" href="https://www.enedino.com.br"><img src="{% static '/portapp/img/brand.png'%}"  alt=""></a>
-  <a class="navbar-brand logo_h" href="https://www.enedino.com.br"><img src="{% static '/portapp/img/faviconEnedino.svg'%}" style="width:40px" alt=""></a>
-
-
-  
+  <a class="navbar-brand logo_h" href="https://www.enedino.com.br"><img src="{% static 'contatos/img/brand.png'%}" alt=""></a>
+  <a class="navbar-brand logo_h" href="https://www.enedino.com.br"><img
+      src="{% static 'contatos/img/faviconEnedino.svg'%}" style="width:40px" alt=""></a>
   <a class="navbar-brand pl-4" href="{% url 'contatos:index' %}">App Contatos</a>
-  
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
-
-  
-  
   <div class="collapse navbar-collapse " id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      
       {% if not user.is_authenticated %}
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'accounts:lista_registro' %}">Registro   </a>
+        <a class="nav-link" href="{% url 'accounts:lista_registro' %}">Registro </a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="{% url 'accounts:lista_login' %}">Login</a>
@@ -34,9 +26,9 @@
         <a class="nav-link" href="{% url 'accounts:lista_logout' %}">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled  text-success" > <strong>{{ user.username }}</strong></a>
+        <a class="nav-link disabled  text-success"> <strong>{{ user.username }}</strong></a>
       </li>
       {% endif %}
-      </ul>
+    </ul>
   </div>
 </nav>

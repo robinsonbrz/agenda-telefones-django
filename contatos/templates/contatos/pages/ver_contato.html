@@ -5,49 +5,42 @@
 {%block conteudo%}
 
 
-  <div class="card  mb-3" >
-    <div class="row g-0">
-      <div class="col-md-4">
-        {% if contato.foto %}
-          <img src="{{ contato.foto.url }}" class="card-img-top rounded img-fluid" >
-        {% else %}
-          <img src="/media/fotos/2022/03/sua_foto.jpg" class="img-fluid rounded" style="max-width: 200;">
-        {% endif %}
-
-
+<div class="card  mb-3">
+  <h1>Contato Detalhes</h1>
+  <div class="row g-0">
+    <div class="col-md-4">
+      {% if contato.foto %}
+      <img src="{{ contato.foto.url }}" class="card-img-top rounded img-fluid" alt="foto {{contato.nome}}">
+      {% else %}
+      <img src="/media/fotos/2022/03/sua_foto.jpg" class="img-fluid rounded" alt="foto placeholder" style="max-width: 200;">
+      {% endif %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{contato.nome}} {{contato.sobrenome}}</h5>
+        <p class="card-text">{{contato.descricao}}</p>
       </div>
-      <div class="col-md-8">
-
-        
-          <div class="card-body">
-            <h5 class="card-title">{{contato.nome}} {{contato.sobrenome}}</h5>
-            <p class="card-text">{{contato.descricao}}</p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><Strong>Telefone</Strong></li>
-            <li class="list-group-item">{{contato.telefone}}</li>
-            <li class="list-group-item"><Strong>e-mail</Strong></li>
-            <li class="list-group-item">{{contato.email}}</li>
-            <li class="list-group-item"><Strong>Data cadastro</Strong></li>
-            <li class="list-group-item">{{contato.data_criacao|date:'d/m/Y H:i:s'}}</li>
-            <li class="list-group-item"><Strong>Categoria</Strong></li>
-            <li class="list-group-item">{{contato.categoria}}</li>
-          </ul>
-
-
-        </div>
-      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><Strong>Telefone</Strong></li>
+        <li class="list-group-item">{{contato.telefone}}</li>
+        <li class="list-group-item"><Strong>e-mail</Strong></li>
+        <li class="list-group-item">{{contato.email}}</li>
+        <li class="list-group-item"><Strong>Data cadastro</Strong></li>
+        <li class="list-group-item">{{contato.data_criacao|date:'d/m/Y H:i:s'}}</li>
+        <li class="list-group-item"><Strong>Categoria</Strong></li>
+        <li class="list-group-item">{{contato.categoria}}</li>
+      </ul>
     </div>
   </div>
-  <a class="btn btn-success m-3" href="{% url 'contatos:index' %}" role="button">Voltar</a>
+</div>
 
-  {% if  user.user.is_staff %}
-
-      <a class="btn btn-danger m-3" href="{% url 'contatos:deleta-contato' contato.id %}" id="btn-deletacontato" role="button">Apagar contato</a>
-  {% else %}
-      <a class="btn btn-warning m-3 " href="#"  id="btn-deletacontato-off" role="button">Apagar Contato</a>
-
-  {% endif%}
-
-  <p>* As informações de contatos são fictícios, gerados aleatóriamente. Qualquer semelhança de número ou nome é consequência do acaso.</p>
+<a class="btn btn-success m-3" href="{% url 'contatos:index' %}" role="button">Voltar</a>
+{% if  user.is_authenticated %}
+<a class="btn btn-danger m-3" href="{% url 'contatos:deleta-contato' contato.id %}" id="btn-deletacontato"
+  role="button">Apagar contato</a>
+{% else %}
+<a class="btn btn-warning m-3 " href="#" id="btn-deletacontato-off" role="button">Apagar Contato</a>
+{% endif%}
+<p>* As informações de contatos são fictícios, gerados aleatóriamente. Qualquer semelhança de número ou nome é
+  consequência do acaso.</p>
 {%endblock conteudo%}

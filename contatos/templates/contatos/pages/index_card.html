@@ -4,7 +4,6 @@
 {%block conteudo%}
     <h1 class="mt-3">Lista de Telefones</h1>
 
-
     <div class="container">
         <div class="card-columns">
         {% for contato in contatos %}
@@ -23,15 +22,10 @@
                         <li class="list-group-item"><Strong>e-mail</Strong></li>
                         <li class="list-group-item">{{contato.email}}</li>
                     </ul>
-
                 </div>
-
                 {% endfor %}
             </div>
     </div>
-
-
-
     <nav>
         <ul class="pagination">
         {% if contatos.has_previous %}
@@ -49,16 +43,12 @@
                     <a class="page-link" href="?page={{ pagina }}&termo={{ request.GET.termo}}">{{ pagina }}</a>
                 </li>
             {% endif %}
-            
-        
-        
         {% endfor %}
           
         {% if contatos.has_next %}
             <li class="page-item"><a class="page-link" href="?page={{ contatos.next_page_number }}&termo={{ request.GET.termo}}">Next</a></li>
                 <li class="page-item"><a class="page-link" href="?page={{ contatos.paginator.num_pages }}&termo={{ request.GET.termo}}">Last</a></li>
         {% endif %}
-
         </ul>
     </nav>
 {%endblock conteudo%}

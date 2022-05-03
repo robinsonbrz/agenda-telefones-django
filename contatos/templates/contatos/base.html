@@ -5,13 +5,11 @@
 <head>
   <title>{% block titulo %}{% endblock titulo %}Agenda</title>
     {% include 'contatos/parciais/_head.html' %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'portapp/img/faviconEnedino.svg' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'contatos/img/faviconEnedino.svg' %}"/>
 </head>
 
 <body>
-
   {% include 'contatos/parciais/_nav.html' %}
-
   <div class="container">
     <div class="row">
       <div class="col-lg-12 mt-4">
@@ -38,16 +36,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script>
-
     $( "#btn-deletacontato-off" ).on('click', function (e) {
       e.preventDefault();
       alert("Somente administradores podem deletar registros de contatos!\nSolicite upgrade de conta.");
     });
-
-    
-
-
-
     $( "#btn-deletacontato" ).on('click', function (e) {
       var resposta = confirm( "Deseja realmente apagar contato: {{ contato.nome }} ?" );
       if (resposta == true) {
@@ -58,8 +50,7 @@
       }
     });
   </script>
-
-  <footer class="bg-dark static-top">
+  <footer class="bg-primary text-center text-white">
     {% include 'contatos/parciais/_footer.html' %}
   </footer>
 </body>

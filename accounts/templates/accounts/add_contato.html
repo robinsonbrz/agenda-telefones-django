@@ -1,0 +1,23 @@
+{% extends 'contatos/base.html' %}
+{% load bootstrap %}
+
+{%block titulo%}Adicionar | {%endblock%}
+
+{% block conteudo %}
+        {% include 'contatos/parciais/_messages.html' %}
+    <div class="container">
+        <h1>Adicionar contato a Lista de Telefones</h1>
+        <form action="{%url 'accounts:lista_add_contato'%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table class="table">
+                {{ form|bootstrap }}
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+{% endblock %}

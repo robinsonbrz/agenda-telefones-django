@@ -1,0 +1,36 @@
+{% extends 'contatos/base.html' %}
+
+{%block titulo%}Login | {%endblock%}
+
+
+{% block conteudo %}
+  <h1 class="mt-3 mb-3">Login</h1>
+
+
+  {% if not user.is_authenticated %}
+    <form method="POST" action="{% url 'accounts:lista_login' %}">
+      {% include 'contatos/parciais/_messages.html' %}
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Usuário</label>
+        <input type="text" name="usuario" value="{{request.POST.usuario}}" {{requst.POST.usuario}} class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" name="senha" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  {% else %}
+    <p>
+      Usuário {{user.username}} está logado.
+    </p>
+    <p>
+      <a href="{% url 'accounts:lista_logout' %}">Clique aqui</a> para sair.
+    </p>
+
+  {% endif %}
+
+
+  <br>
+{% endblock %}

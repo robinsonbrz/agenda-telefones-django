@@ -29,7 +29,7 @@
     <div align="center">
     <br>
         <a href="https://www.linkedin.com/in/robinsonbrz/">
-            <img src="Movie List.jpg" width="600" height="auto">
+            <img src="AgendaApp.jpg" width="600" height="auto">
             <h3 align="left">
                 🚧 Projeto 🚀 concluído 🚧
             </h3>
@@ -37,7 +37,7 @@
             <div align="left">
                 - [x] Gerenciamento de contatos de telefone<br>
                 - [x] Backend Django<br>
-                - [x] Frontend Bootstrap / Javascript<br><br> 
+                - [x] Frontend Bootstrap / Javascript<br>
                 - [x] Live Demo - Hospedada na nuvem<br>
                 - [x] Deploy Oracle Cloud Infrastructure<br>
                 - [x] Banco de dados PostgreSql<br>

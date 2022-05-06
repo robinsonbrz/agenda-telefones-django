@@ -1,13 +1,19 @@
 ﻿<div width="720">
   <h1 align="left">Gerenciamento de contatos em Django</h1>
-  <h2 align="left">Lista de contatos, telefones, e informações gerais</h2>
+  <h2 align="left">Lista de telefones e contatos</h2>
   <p align="left">Crud, Persistência de dados em BD PostgreSql ou Sqlite</p>
-  <p align="left">Formularios de login, registro de novos usuários</p>
+  <br>
+  <br>
+<p align="left">Demonstração online disponível no botão abaixo</p>
+<a href="https://www.enedino.com.br/lista">
+<img src="https://raw.githubusercontent.com/robinsonbrz/robinsonbrz/main/static/img/live_demo.jpg" width="138" height="50"></a>
+<br>
+<br>
             <table align="right">
                 </tr>
                 <td>
                     <a href="https://www.linkedin.com/in/robinsonbrz/">
-                        Adaptação e deploy por Robinson Enedino
+                        Adaptação e deploy por <b>Robinson Enedino</b>
                 </td>
                 <td>
                     <a href="https://www.linkedin.com/in/robinsonbrz/">
@@ -28,7 +34,7 @@
             </table>
     <div align="center">
     <br>
-        <a href="https://www.linkedin.com/in/robinsonbrz/">
+        <a href="https://www.linkedin.com/in/robinsonbrz/"> 
             <img src="AgendaApp.jpg" width="600" height="auto">
             <h3 align="left">
                 🚧 Projeto 🚀 concluído 🚧

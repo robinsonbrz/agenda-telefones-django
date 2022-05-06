@@ -2,53 +2,57 @@
 {%block titulo%}{%endblock%}
 
 {%block conteudo%}
-    <h1 class="mt-3">Lista de Telefones</h1>
+<h1 class="mt-3">Lista de Telefones</h1>
 
-    <div class="container">
-        <div class="card-columns">
-        {% for contato in contatos %}
-                <div class="card" style="width: 18rem;">
-                    {% if contato.foto %}
-                    <img src="{{ contato.foto.url }}" >
-                    {% else %}
-                    <img src="/media/fotos/2022/03/sua_foto.jpg" >
-                    {% endif %}
-                    <div class="card-body">
-                       <h5>{{contato.nome}} {{contato.sobrenome}}</h5> <a href="{% url 'ver_contato' contato.id %}" class="btn btn btn-link stretched-link "></a>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><Strong>Telefone</Strong></li>
-                        <li class="list-group-item">{{contato.telefone}}</li>
-                        <li class="list-group-item"><Strong>e-mail</Strong></li>
-                        <li class="list-group-item">{{contato.email}}</li>
-                    </ul>
-                </div>
-                {% endfor %}
-            </div>
-    </div>
-    <nav>
-        <ul class="pagination">
-        {% if contatos.has_previous %}
-            <li class="page-item"><a class="page-link" href="?page=1&termo={{ request.GET.termo}}">First</a></li>
-            <li class="page-item"><a class="page-link" href="?page={{ contatos.previous_page_number }}&termo={{ request.GET.termo}}">Previous</a></li>
-        {% endif %} 
+<div class="container">
+   <div class="card-columns">
+      {% for contato in contatos %}
+      <div class="card" style="width: 18rem;">
+         {% if contato.foto %}
+         <img src="{{ contato.foto.url }}">
+         {% else %}
+         <img src="/media/fotos/2022/03/sua_foto.jpg">
+         {% endif %}
+         <div class="card-body">
+            <h5>{{contato.nome}} {{contato.sobrenome}}</h5> <a href="{% url 'ver_contato' contato.id %}"
+               class="btn btn btn-link stretched-link "></a>
+         </div>
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item"><Strong>Telefone</Strong></li>
+            <li class="list-group-item">{{contato.telefone}}</li>
+            <li class="list-group-item"><Strong>e-mail</Strong></li>
+            <li class="list-group-item">{{contato.email}}</li>
+         </ul>
+      </div>
+      {% endfor %}
+   </div>
+</div>
+<nav>
+   <ul class="pagination">
+      {% if contatos.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1&termo={{ request.GET.termo}}">First</a></li>
+      <li class="page-item"><a class="page-link"
+            href="?page={{ contatos.previous_page_number }}&termo={{ request.GET.termo}}">Previous</a></li>
+      {% endif %}
 
-        {% for pagina in contatos.paginator.page_range %}
-            {% if contatos.number == pagina %}
-                <li class="page-item active">
-                    <a class="page-link" href="?page={{ pagina }}&termo={{ request.GET.termo}}">{{ pagina }}</a>
-                </li>
-            {% else %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ pagina }}&termo={{ request.GET.termo}}">{{ pagina }}</a>
-                </li>
-            {% endif %}
-        {% endfor %}
-          
-        {% if contatos.has_next %}
-            <li class="page-item"><a class="page-link" href="?page={{ contatos.next_page_number }}&termo={{ request.GET.termo}}">Next</a></li>
-                <li class="page-item"><a class="page-link" href="?page={{ contatos.paginator.num_pages }}&termo={{ request.GET.termo}}">Last</a></li>
-        {% endif %}
-        </ul>
-    </nav>
+      {% for pagina in contatos.paginator.page_range %}
+      {% if contatos.number == pagina %}
+      <li class="page-item active">
+         <a class="page-link" href="?page={{ pagina }}&termo={{ request.GET.termo}}">{{ pagina }}</a>
+      </li>
+      {% else %}
+      <li class="page-item">
+         <a class="page-link" href="?page={{ pagina }}&termo={{ request.GET.termo}}">{{ pagina }}</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+
+      {% if contatos.has_next %}
+      <li class="page-item"><a class="page-link"
+            href="?page={{ contatos.next_page_number }}&termo={{ request.GET.termo}}">Next</a></li>
+      <li class="page-item"><a class="page-link"
+            href="?page={{ contatos.paginator.num_pages }}&termo={{ request.GET.termo}}">Last</a></li>
+      {% endif %}
+   </ul>
+</nav>
 {%endblock conteudo%}
